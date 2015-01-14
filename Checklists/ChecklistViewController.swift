@@ -10,17 +10,35 @@ import UIKit
 
 class checklistViewController: UITableViewController {
     
-    var row0text = "Walk the dog"
-    var row1text = "Brush my teeth"
-    var row2text = "Learn IOS development"
-    var row3text = "Soccer practice"
-    var row4text = "Eat ice cream"
+    var row0item: ChecklistItem
+    var row1item: ChecklistItem
+    var row2item: ChecklistItem
+    var row3item: ChecklistItem
+    var row4item: ChecklistItem
     
-    var row0checked = false
-    var row1checked = true
-    var row2checked = true
-    var row3checked = false
-    var row4checked = true
+    required init(coder aDecoder: NSCoder) {
+        row0item = ChecklistItem()
+        row0item.text = "Walk the dog"
+        row0item.checked = false
+        
+        row1item = ChecklistItem()
+        row1item.text = "Brush my teeth"
+        row1item.checked = true
+        
+        row2item = ChecklistItem()
+        row2item.text = "Learn IOS development"
+        row2item.checked = true
+        
+        row3item = ChecklistItem()
+        row3item.text = "Soccer practice"
+        row3item.checked = false
+        
+        row4item = ChecklistItem()
+        row4item.text = "Eat ice cream"
+        row4item.checked = true
+        
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +62,19 @@ class checklistViewController: UITableViewController {
         switch(indexPath.row)
         {
         case 0:
-            label.text = row0text
+            label.text = row0item.text
             break
         case 1:
-            label.text = row1text
+            label.text = row1item.text
             break
         case 2:
-            label.text = row2text
+            label.text = row2item.text
             break
         case 3:
-            label.text = row3text
+            label.text = row3item.text
             break
         case 4:
-            label.text = row4text
+            label.text = row4item.text
             break
         default:
             break
@@ -76,24 +94,19 @@ class checklistViewController: UITableViewController {
             switch(indexPath.row)
             {
             case 0:
-                row0checked = !row0checked
-                //isChecked = row0checked
+                row0item.checked = !row0item.checked
                 break
             case 1:
-                row1checked = !row1checked
-                //isChecked = row1checked
+                row1item.checked = !row1item.checked
                 break
             case 2:
-                row2checked = !row2checked
-                //isChecked = row2checked
+                row2item.checked = !row2item.checked
                 break
             case 3:
-                row3checked = !row3checked
-                //isChecked = row3checked
+                row3item.checked = !row3item.checked
                 break
             case 4:
-                row4checked = !row4checked
-                //isChecked = row4checked
+                row4item.checked = !row4item.checked
                 break
             default:
                 break
@@ -111,19 +124,19 @@ class checklistViewController: UITableViewController {
         switch(indexPath.row)
         {
         case 0:
-            isChecked = row0checked
+            isChecked = row0item.checked
             break
         case 1:
-            isChecked = row1checked
+            isChecked = row1item.checked
             break
         case 2:
-            isChecked = row2checked
+            isChecked = row2item.checked
             break
         case 3:
-            isChecked = row3checked
+            isChecked = row3item.checked
             break
         case 4:
-            isChecked = row4checked
+            isChecked = row4item.checked
             break
         default:
             break
