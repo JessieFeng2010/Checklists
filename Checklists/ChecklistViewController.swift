@@ -93,5 +93,21 @@ class checklistViewController: UITableViewController {
         let label = cell.viewWithTag(1000) as UILabel
         label.text = item.text
     }
+    
+    @IBAction func addItem() {
+        let newRowIndex = items.count
+        
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = false
+        
+        items.append(item)
+        
+        //tell the table view about this new row so it can add a new cell for that
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        //creat a new, temporary array holding just the one index-path item
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+    }
 }
 
