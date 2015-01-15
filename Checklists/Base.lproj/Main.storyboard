@@ -48,32 +48,59 @@
         <!--Add Item-->
         <scene sceneID="pKJ-H1-5Ml">
             <objects>
-                <tableViewController id="vXL-Jl-4hh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Pk-6d-bq7">
+                <tableViewController id="vXL-Jl-4hh" customClass="AddItemTableViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="3Pk-6d-bq7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gHv-bX-7ov">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gHv-bX-7ov" id="zFG-VJ-8Wo">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="JtB-5l-rkt">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="r9v-Zr-kpE">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r9v-Zr-kpE" id="81L-QM-JJe">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-L9-ZA9">
+                                                    <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="vXL-Jl-4hh" eventType="editingDidEndOnExit" id="3Yl-r8-Ykf"/>
+                                                        <outlet property="delegate" destination="vXL-Jl-4hh" id="DG4-zP-vSP"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="vXL-Jl-4hh" id="3T7-47-ROi"/>
                             <outlet property="delegate" destination="vXL-Jl-4hh" id="Pbr-s5-9gN"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Item" id="KcU-Ib-Oay">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Pq-cM-irK"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ohi-rB-iG0"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Pq-cM-irK">
+                            <connections>
+                                <action selector="cancel" destination="vXL-Jl-4hh" id="yEh-b8-jo6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="ohi-rB-iG0">
+                            <connections>
+                                <action selector="done" destination="vXL-Jl-4hh" id="dWU-ic-WWL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="ohi-rB-iG0" id="OCv-da-DXk"/>
+                        <outlet property="textField" destination="LzL-L9-ZA9" id="bcb-Pl-qsv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBP-Ug-hxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="388"/>
+            <point key="canvasLocation" x="2561" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tsI-RG-gv1">
