@@ -8,7 +8,7 @@
 
 import UIKit
 
-class checklistViewController: UITableViewController {
+class checklistViewController: UITableViewController, AddItemViewControllerDelegate {
     
     var items: [ChecklistItem]
     
@@ -103,12 +103,12 @@ class checklistViewController: UITableViewController {
         label.text = item.text
     }
     
-    @IBAction func addItem() {
+    func addItemViewControllerDidCancel(controller: AddItemTableViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addItemViewController(controller: AddItemTableViewController, didFinishAddingItem item: ChecklistItem) {
         let newRowIndex = items.count
-        
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = false
         
         items.append(item)
         
@@ -117,6 +117,19 @@ class checklistViewController: UITableViewController {
         //creat a new, temporary array holding just the one index-path item
         let indexPaths = [indexPath]
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddItem" {
+            //The storyboard shows that the segue does not go directly to AddItemViewController but to the navigation controller that embeds it
+            let navigationController = segue.destinationViewController as UINavigationController
+            //This property refers to the screen that is currently active inside the navigation controller
+            let controller = navigationController.topViewController as AddItemTableViewController
+            
+            controller.delegate = self
+        }
     }
 }
 
