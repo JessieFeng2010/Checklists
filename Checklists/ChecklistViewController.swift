@@ -8,7 +8,7 @@
 
 import UIKit
 
-class checklistViewController: UITableViewController, AddItemViewControllerDelegate {
+class checklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var items: [ChecklistItem]
     
@@ -105,11 +105,11 @@ class checklistViewController: UITableViewController, AddItemViewControllerDeleg
         label.text = item.text
     }
     
-    func addItemViewControllerDidCancel(controller: AddItemTableViewController) {
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemViewController(controller: AddItemTableViewController, didFinishAddingItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
         let newRowIndex = items.count
         
         items.append(item)
@@ -123,7 +123,7 @@ class checklistViewController: UITableViewController, AddItemViewControllerDeleg
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemViewController(controller: AddItemTableViewController, didFinishEditngItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditngItem item: ChecklistItem) {
         if let index = find(items, item) {
             let indexPath = NSIndexPath(forRow: index, inSection: 0)
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
@@ -135,16 +135,16 @@ class checklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddItem" {
-            //The storyboard shows that the segue does not go directly to AddItemViewController but to the navigation controller that embeds it
+            //The storyboard shows that the segue does not go directly to ItemDetailViewController but to the navigation controller that embeds it
             let navigationController = segue.destinationViewController as UINavigationController
             //This property refers to the screen that is currently active inside the navigation controller
-            let controller = navigationController.topViewController as AddItemTableViewController
+            let controller = navigationController.topViewController as ItemDetailViewController
             
             controller.delegate = self
         }
         else if segue.identifier == "EditItem" {
             let navigationController = segue.destinationViewController as UINavigationController
-            let controller = navigationController.topViewController as AddItemTableViewController
+            let controller = navigationController.topViewController as ItemDetailViewController
 
             controller.delegate = self
             
