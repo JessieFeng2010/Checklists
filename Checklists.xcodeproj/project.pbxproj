@@ -16,6 +16,7 @@
 		40A601611A661D670024B7F2 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A601601A661D670024B7F2 /* ChecklistItem.swift */; };
 		40A691A41A674D7500BD8BB3 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A691A31A674D7500BD8BB3 /* ItemDetailViewController.swift */; };
 		40B6C7621A773E02009C7CF8 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6C7611A773E01009C7CF8 /* AllListsViewController.swift */; };
+		40B6C7641A776622009C7CF8 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B6C7631A776622009C7CF8 /* Checklist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		40A601601A661D670024B7F2 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		40A691A31A674D7500BD8BB3 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		40B6C7611A773E01009C7CF8 /* AllListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		40B6C7631A776622009C7CF8 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				40A601601A661D670024B7F2 /* ChecklistItem.swift */,
 				40A691A31A674D7500BD8BB3 /* ItemDetailViewController.swift */,
 				40B6C7611A773E01009C7CF8 /* AllListsViewController.swift */,
+				40B6C7631A776622009C7CF8 /* Checklist.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				40A691A41A674D7500BD8BB3 /* ItemDetailViewController.swift in Sources */,
 				404A76381A5F6E7E0044104B /* ChecklistViewController.swift in Sources */,
+				40B6C7641A776622009C7CF8 /* Checklist.swift in Sources */,
 				40A601611A661D670024B7F2 /* ChecklistItem.swift in Sources */,
 				40B6C7621A773E02009C7CF8 /* AllListsViewController.swift in Sources */,
 				404A76361A5F6E7E0044104B /* AppDelegate.swift in Sources */,
