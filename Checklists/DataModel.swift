@@ -13,6 +13,16 @@ class DataModel {
     
     init() {
         loadChecklists()
+        registerDefaults()
+    }
+    
+    var indexOfSelectedChecklist: Int {
+        get {
+            return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
+        }
     }
     
     //MARK: - loading and saving
@@ -41,5 +51,11 @@ class DataModel {
             lists = unarchiver.decodeObjectForKey("Checklists") as [Checklist]
             unarchiver.finishDecoding()
         }
+    }
+    
+    //NSUserDefaults will use the values from this dictionary if you ask it for a key but it cannot find anything under that key
+    func registerDefaults() {
+        let dictionary = [ "ChecklistIndex": -1 ]
+        NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
     }
 }
