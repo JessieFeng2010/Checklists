@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IconPickerViewControllerDelegate: class {
-    func iconPicker(picker: IconPickerViewController, didPickicon iconName: String)
+    func iconPicker(picker: IconPickerViewController, didPickIcon iconName: String)
 }
 
 class IconPickerViewController: UITableViewController {
@@ -40,5 +40,12 @@ class IconPickerViewController: UITableViewController {
         cell.imageView.image = UIImage(named: iconName)//!
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let delegate = delegate {
+            let iconName = icons[indexPath.row]
+            delegate.iconPicker(self, didPickIcon: iconName)
+        }
     }
 }

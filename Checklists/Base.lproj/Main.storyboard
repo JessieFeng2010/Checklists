@@ -91,8 +91,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kkk-kw-v92" id="j11-dp-qEg">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5iP-pp-9wc">
-                                                    <rect key="frame" x="523" y="4" width="36" height="36"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5iP-pp-9wc">
+                                                    <rect key="frame" x="531" y="4" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="CUi-Nu-FYt"/>
+                                                        <constraint firstAttribute="width" constant="36" id="tZX-2R-NFh"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBA-Zo-EKh">
                                                     <rect key="frame" x="20" y="11" width="42" height="21"/>
@@ -101,6 +105,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5iP-pp-9wc" firstAttribute="top" secondItem="j11-dp-qEg" secondAttribute="top" constant="4" id="LU5-2W-toX"/>
+                                                <constraint firstAttribute="trailing" secondItem="5iP-pp-9wc" secondAttribute="trailing" id="gzZ-Kl-67t"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="xzS-MF-mYd" kind="show" identifier="PickIcon" id="YCI-Zh-Vdh"/>
