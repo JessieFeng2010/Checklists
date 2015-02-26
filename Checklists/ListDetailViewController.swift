@@ -36,6 +36,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
         }
         
         iconImageView.image = UIImage(named: iconName)
+        tableView.rowHeight = 44
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -29,6 +29,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             textField.text = item.text
             doneBarButton.enabled = true
         }
+        tableView.rowHeight = 44
     }
     
     override func viewWillAppear(animated: Bool) {

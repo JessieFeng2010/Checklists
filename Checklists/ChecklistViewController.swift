@@ -15,6 +15,7 @@ class checklistViewController: UITableViewController, ItemDetailViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         title = checklist.name
+        tableView.rowHeight = 44
         // Do any additional setup after loading the view, typically from a nib.
     }
     
