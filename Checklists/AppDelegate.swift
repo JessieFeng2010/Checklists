@@ -22,6 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         controller.dataModel = dataModel
         
+        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+        /*
+        let date = NSDate(timeIntervalSinceNow: 10)
+        
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = date
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification.alertBody = "I am a local notification!"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        */
+        
         return true
     }
 
@@ -51,6 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func saveData() {
         dataModel.saveChecklists()
+    }
+    
+    //This method will be invoked when the local notification is posted and the app is still running or in a suspended state in the backgroud
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        println("didReceiveLocalNotification \(notification)")
     }
 }
 
