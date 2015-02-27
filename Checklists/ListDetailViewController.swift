@@ -85,6 +85,6 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     func iconPicker(picker: IconPickerViewController, didPickIcon iconName: String) {
         self.iconName = iconName
         iconImageView.image = UIImage(named: iconName)
-        navigationController!.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
     }
 }
