@@ -289,6 +289,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-8x-3UY">
                                                     <rect key="frame" x="536" y="7" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="shouldRemindToggled:" destination="vXL-Jl-4hh" eventType="valueChanged" id="ZBv-l7-NAV"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>

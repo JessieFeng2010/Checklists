@@ -125,6 +125,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.text = textField.text
             item.shouldRemind = shouldRemindSwitch.on
             item.dueDate = dueDate
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishEditngItem: item)
         } else {
             let item = ChecklistItem()
@@ -132,7 +133,18 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.checked = false
             item.shouldRemind = shouldRemindSwitch.on
             item.dueDate = dueDate
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAddingItem: item)
+        }
+    }
+    
+    @IBAction func shouldRemindToggled(switchControl: UISwitch) {
+        textField.resignFirstResponder()
+        
+        //When the switch is toggled to ON, this prompts the user for permission to send local notifications
+        if switchControl.on {
+            let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound, categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         }
     }
     
