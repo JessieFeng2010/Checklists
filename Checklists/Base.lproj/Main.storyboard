@@ -19,8 +19,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmx-2p-0r1">
-                                            <rect key="frame" x="40" y="11" width="493" height="21"/>
+                                            <rect key="frame" x="40" y="5" width="493" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTp-5s-O9d">
+                                            <rect key="frame" x="40" y="27" width="493" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -32,10 +38,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="oTp-5s-O9d" firstAttribute="leading" secondItem="vAV-mt-eGu" secondAttribute="leading" constant="40" id="0r9-h8-sYK"/>
+                                        <constraint firstAttribute="bottom" secondItem="oTp-5s-O9d" secondAttribute="bottom" constant="1" id="MWx-Gk-uid"/>
+                                        <constraint firstItem="Jmx-2p-0r1" firstAttribute="top" secondItem="vAV-mt-eGu" secondAttribute="top" constant="5" id="X0z-pX-o1o"/>
                                         <constraint firstItem="Jmx-2p-0r1" firstAttribute="leading" secondItem="vAV-mt-eGu" secondAttribute="leading" constant="40" id="qDI-X5-oyi"/>
                                         <constraint firstAttribute="centerY" secondItem="Jmx-2p-0r1" secondAttribute="centerY" id="riJ-WX-scK"/>
+                                        <constraint firstAttribute="trailing" secondItem="oTp-5s-O9d" secondAttribute="trailing" id="uZk-y5-eqS"/>
                                         <constraint firstAttribute="trailing" secondItem="Jmx-2p-0r1" secondAttribute="trailing" id="x3J-Yu-AhW"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="riJ-WX-scK"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="8Sk-yi-Fkj" kind="presentation" identifier="EditItem" trigger="accessoryAction" id="gVx-dC-0zn"/>
@@ -57,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iA-4G-8Nq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="388"/>
+            <point key="canvasLocation" x="1059" y="387"/>
         </scene>
         <!--Add Checklist-->
         <scene sceneID="26g-RF-elv">

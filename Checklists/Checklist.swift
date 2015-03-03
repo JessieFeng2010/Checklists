@@ -46,4 +46,11 @@ class Checklist: NSObject, NSCoding {
         }
         return count
     }
+    
+    //Exercise 2: Sort the to-do items list based on the due date
+    func sortChecklistItems() {
+        for item in items {
+            items.sort({ checklistItem1, checklistItem2 in return checklistItem1.dueDate.compare(checklistItem2.dueDate) == NSComparisonResult.OrderedAscending })
+        }
+    }
 }

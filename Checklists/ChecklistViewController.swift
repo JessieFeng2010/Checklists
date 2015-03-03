@@ -16,6 +16,7 @@ class checklistViewController: UITableViewController, ItemDetailViewControllerDe
         super.viewDidLoad()
         title = checklist.name
         tableView.rowHeight = 44
+        checklist.sortChecklistItems()///
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -75,6 +76,13 @@ class checklistViewController: UITableViewController, ItemDetailViewControllerDe
         let label = cell.viewWithTag(1000) as UILabel
         //label.text = item.text
         label.text = "\(item.itemID): \(item.text)"
+        
+        //Exercise 1: put the due date in a label on the table view cells under the text of the to-do item
+        let labelDueDate = cell.viewWithTag(1002) as UILabel
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .ShortStyle
+        labelDueDate.text = formatter.stringFromDate(item.dueDate)
     }
     
     func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
@@ -92,6 +100,9 @@ class checklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPaths = [indexPath]
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
         
+        checklist.sortChecklistItems()///
+        tableView.reloadData()///
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -102,6 +113,10 @@ class checklistViewController: UITableViewController, ItemDetailViewControllerDe
                 configureTextForCell(cell, withChecklistItem: item)
             }
         }
+        
+        checklist.sortChecklistItems()///
+        tableView.reloadData()///
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
